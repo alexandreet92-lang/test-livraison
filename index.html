@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>[[NOM]] — [[METIER]] à [[VILLE]]</title>
+  <meta name="description" content="[[DESCRIPTION : une phrase, 150 caractères maximum, avec le métier, la ville et ce qui distingue l'entreprise.]]">
+  <link rel="canonical" href="[[URL]]/">
+  <meta name="theme-color" content="#1e8240">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="[[NOM]] — [[METIER]] à [[VILLE]]">
+  <meta property="og:description" content="[[DESCRIPTION]]">
+  <meta property="og:url" content="[[URL]]/">
+  <meta property="og:image" content="[[URL]]/images/partage.jpg">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Ce que Google lit pour afficher l'entreprise : à garder juste. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "[[NOM]]",
+    "description": "[[DESCRIPTION]]",
+    "url": "[[URL]]/",
+    "telephone": "[[TELEPHONE]]",
+    "email": "[[EMAIL]]",
+    "image": "[[URL]]/images/partage.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "[[RUE]]",
+      "postalCode": "[[CODE-POSTAL]]",
+      "addressLocality": "[[VILLE]]",
+      "addressCountry": "FR"
+    },
+    "openingHours": ["[[HORAIRES-SCHEMA : ex. Mo-Fr 08:00-18:00]]"]
+  }
+  </script>
+</head>
+<body>
+  <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+
+  <header class="entete">
+    <div class="entete-rang">
+      <a class="marque" href="#haut" aria-label="[[NOM]], accueil">[[NOM]]<span>.</span></a>
+      <button class="burger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav class="menu" id="menu" aria-label="Navigation principale">
+        <a href="#services">Services</a>
+        <a href="#apropos">À propos</a>
+        <a href="#realisations">Réalisations</a>
+        <a href="#avis">Avis</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="bouton" href="tel:[[TELEPHONE-LIEN]]">Appeler</a>
+    </div>
+  </header>
+
+  <main id="contenu">
+    <span id="haut"></span>
+
+    <!-- ── Héros ───────────────────────────────────────────────────── -->
+    <section class="heros">
+      <div class="contenu heros-grille">
+        <div class="heros-texte">
+          <span class="surtitre">[[METIER]] · [[VILLE]]</span>
+          <h1>[[TITRE : la promesse, en une phrase, dite avec les mots du client.]]</h1>
+          <p class="chapeau">[[CHAPEAU : deux phrases. Pour qui, pour quoi, et ce qui rassure.]]</p>
+          <div class="actions">
+            <a class="bouton" href="#contact">[[BOUTON PRINCIPAL : ex. Demander un devis]]</a>
+            <a class="bouton-2" href="tel:[[TELEPHONE-LIEN]]">[[TELEPHONE]]</a>
+          </div>
+          <ul class="preuves">
+            <li>[[PREUVE 1 : ex. Devis gratuit]]</li>
+            <li>[[PREUVE 2 : ex. Réponse sous 24 h]]</li>
+            <li>[[PREUVE 3 : ex. Intervention dans un rayon de 30 km]]</li>
+          </ul>
+        </div>
+        <div class="photo">
+          <img src="images/exemple.svg" width="1200" height="800" alt="[[DESCRIPTION DE LA PHOTO]]" fetchpriority="high">
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Services ────────────────────────────────────────────────── -->
+    <section class="bande" id="services">
+      <div class="contenu">
+        <span class="surtitre revele">Services</span>
+        <h2 class="revele" style="margin-top:14px">[[TITRE DES SERVICES]]</h2>
+        <p class="intro revele">[[INTRO DES SERVICES : une ou deux phrases.]]</p>
+        <div class="grille trois">
+          <article class="carte revele" style="--i:0">
+            <h3>[[SERVICE 1]]</h3>
+            <p>[[Description du service 1.]]</p>
+            <div class="prix">[[PRIX 1 ou retirer cette ligne]]</div>
+          </article>
+          <article class="carte revele" style="--i:1">
+            <h3>[[SERVICE 2]]</h3>
+            <p>[[Description du service 2.]]</p>
+            <div class="prix">[[PRIX 2 ou retirer cette ligne]]</div>
+          </article>
+          <article class="carte revele" style="--i:2">
+            <h3>[[SERVICE 3]]</h3>
+            <p>[[Description du service 3.]]</p>
+            <div class="prix">[[PRIX 3 ou retirer cette ligne]]</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── À propos ────────────────────────────────────────────────── -->
+    <section class="bande" id="apropos">
+      <div class="contenu deux">
+        <div class="photo revele">
+          <img src="images/exemple.svg" width="1200" height="800" alt="[[DESCRIPTION DE LA PHOTO : la personne ou l'équipe]]" loading="lazy">
+        </div>
+        <div>
+          <span class="surtitre revele">À propos</span>
+          <h2 class="revele" style="margin-top:14px">[[TITRE À PROPOS : ex. Un artisan, pas un standard]]</h2>
+          <p class="revele" style="margin-top:16px">[[PARAGRAPHE 1 : qui est la personne, depuis quand, sa façon de travailler.]]</p>
+          <p class="revele">[[PARAGRAPHE 2 : ce qui compte pour elle, ses engagements, ses certifications réelles.]]</p>
+          <div class="chiffres revele">
+            <div><b>[[CHIFFRE 1]]</b><span>[[libellé 1]]</span></div>
+            <div><b>[[CHIFFRE 2]]</b><span>[[libellé 2]]</span></div>
+            <div><b>[[CHIFFRE 3]]</b><span>[[libellé 3]]</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Réalisations ────────────────────────────────────────────── -->
+    <section class="bande" id="realisations">
+      <div class="contenu">
+        <span class="surtitre revele">Réalisations</span>
+        <h2 class="revele" style="margin-top:14px">[[TITRE DES RÉALISATIONS]]</h2>
+        <div class="galerie">
+          <figure class="revele" style="--i:0"><img src="images/exemple.svg" width="1200" height="800" alt="[[DESCRIPTION 1]]" loading="lazy"><figcaption>[[Légende 1]]</figcaption></figure>
+          <figure class="revele" style="--i:1"><img src="images/exemple.svg" width="1200" height="800" alt="[[DESCRIPTION 2]]" loading="lazy"><figcaption>[[Légende 2]]</figcaption></figure>
+          <figure class="revele" style="--i:2"><img src="images/exemple.svg" width="1200" height="800" alt="[[DESCRIPTION 3]]" loading="lazy"><figcaption>[[Légende 3]]</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Avis ────────────────────────────────────────────────────── -->
+    <!-- DES AVIS RÉELLEMENT REÇUS, recopiés tels quels avec le prénom. Jamais
+         inventés : de faux avis sur un vrai commerce sont une pratique
+         commerciale trompeuse. S'il n'y en a pas, RETIRER TOUTE LA SECTION. -->
+    <section class="bande" id="avis">
+      <div class="contenu">
+        <span class="surtitre revele">Avis</span>
+        <h2 class="revele" style="margin-top:14px">Ce que disent les clients</h2>
+        <ul class="avis">
+          <li class="revele" style="--i:0"><div class="etoiles" aria-label="5 sur 5">★★★★★</div><blockquote>« [[AVIS 1, recopié tel quel]] »</blockquote><cite>[[Prénom]], [[source : Google…]]</cite></li>
+          <li class="revele" style="--i:1"><div class="etoiles" aria-label="5 sur 5">★★★★★</div><blockquote>« [[AVIS 2, recopié tel quel]] »</blockquote><cite>[[Prénom]], [[source]]</cite></li>
+          <li class="revele" style="--i:2"><div class="etoiles" aria-label="5 sur 5">★★★★★</div><blockquote>« [[AVIS 3, recopié tel quel]] »</blockquote><cite>[[Prénom]], [[source]]</cite></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ── Contact ─────────────────────────────────────────────────── -->
+    <section class="bande" id="contact">
+      <div class="contenu deux">
+        <div>
+          <span class="surtitre revele">Contact</span>
+          <h2 class="revele" style="margin-top:14px">[[TITRE CONTACT : ex. Parlons de votre projet]]</h2>
+          <p class="intro revele">[[INTRO CONTACT : zone d'intervention, délai de réponse.]]</p>
+
+          <ul class="horaires revele" aria-label="Horaires">
+            <li><span>[[Lundi – Vendredi]]</span><span>[[8 h – 18 h]]</span></li>
+            <li><span>[[Samedi]]</span><span>[[9 h – 12 h]]</span></li>
+            <li><span>[[Dimanche]]</span><span>[[Fermé]]</span></li>
+          </ul>
+
+          <address class="coordonnees revele">
+            <span>[[RUE]], [[CODE-POSTAL]] [[VILLE]]</span>
+            <a href="tel:[[TELEPHONE-LIEN]]">[[TELEPHONE]]</a>
+            <a href="mailto:[[EMAIL]]">[[EMAIL]]</a>
+            <!-- UN LIEN VERS LE PLAN, PAS UNE CARTE INTÉGRÉE : une carte intégrée
+                 dépose des cookies et oblige à afficher un bandeau de consentement. -->
+            <a href="[[LIEN-PLAN : adresse Google Maps de l'entreprise]]" target="_blank" rel="noopener">Voir sur le plan →</a>
+            <!-- RETIRER la ligne suivante si le client ne prend pas de rendez-vous en ligne. -->
+            <a href="[[LIEN-RDV : adresse Cal.com du client]]" target="_blank" rel="noopener">Prendre rendez-vous en ligne →</a>
+          </address>
+        </div>
+
+        <!-- Formulaire géré par Netlify Forms : les demandes arrivent dans la boîte
+             du client (réglage dans SON compte Netlify : Forms → notifications). -->
+        <form class="formulaire revele" name="contact" method="POST" action="merci.html" data-netlify="true" netlify-honeypot="champ-piege">
+          <input type="hidden" name="form-name" value="contact">
+          <p class="piege" aria-hidden="true"><label>Ne pas remplir <input name="champ-piege" tabindex="-1" autocomplete="off"></label></p>
+
+          <label for="nom">Votre nom</label>
+          <input class="champ" id="nom" name="nom" type="text" autocomplete="name" required>
+
+          <label for="tel">Votre téléphone</label>
+          <input class="champ" id="tel" name="telephone" type="tel" autocomplete="tel">
+
+          <label for="mail">Votre e-mail</label>
+          <input class="champ" id="mail" name="email" type="email" autocomplete="email" required>
+
+          <label for="message">Votre message</label>
+          <textarea class="champ" id="message" name="message" required></textarea>
+
+          <button class="bouton" type="submit">Envoyer ma demande</button>
+          <p class="note">Vos données servent uniquement à vous répondre. <a href="confidentialite.html">En savoir plus</a>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pied">
+    <div class="contenu pied-rang">
+      <p>© <span id="annee">2026</span> [[NOM]] · [[VILLE]]</p>
+      <nav aria-label="Pied de page">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="confidentialite.html">Confidentialité</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Téléphone : appeler et écrire restent toujours à portée du pouce. -->
+  <div class="barre-pouce">
+    <a class="bouton" href="tel:[[TELEPHONE-LIEN]]">Appeler</a>
+    <a class="bouton-2" href="#contact">Écrire</a>
+  </div>
+
+  <script src="site.js" defer></script>
+</body>
+</html>

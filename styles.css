@@ -1,0 +1,247 @@
+/* ════════════════════════════════════════════════════════════════════════
+   MODÈLE DE SITE STATIQUE — l'habillage.
+
+   POUR CHANGER L'ALLURE D'UN CLIENT, TOUCHER AUX VARIABLES CI-DESSOUS, et
+   presque rien d'autre : la couleur d'accent, le papier, l'encre, la
+   typographie des titres.
+
+   AUCUNE POLICE NI SCRIPT EXTERNE. Pas de Google Fonts, pas de statistiques :
+   rien ne part vers un tiers à la visite, donc pas de bandeau de cookies à
+   afficher, et la page se charge vite. Les polices sont celles du système.
+
+   DEUX VERTS, COMME SUR TTW : un accent pour ce qui est DESSINÉ, un accent
+   foncé pour ce qui porte du TEXTE (contraste 4,5 pour 1 au minimum). Si vous
+   changez la couleur, gardez cette règle : testez le texte blanc sur
+   --accent-texte.
+   ════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --accent: #2da951;
+  --accent-texte: #1e8240;
+  --accent-survol: #176934;
+  --accent-clair: #e9f6ec;
+  --sur-accent: #ffffff;
+
+  --papier: #faf8f2;
+  --papier-2: #f2eee3;
+  --surface: #ffffff;
+  --encre: #17150f;
+  --encre-2: #5a5548;
+  --encre-3: #7a7466;
+  --trait: #ded7c6;
+
+  --titres: 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+  --corps: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --lisse: cubic-bezier(.22, .61, .36, 1);
+  --largeur: 1120px;
+  color-scheme: light;
+}
+
+/* La nuit suit le réglage de l'appareil, sans bouton. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --accent: #4fc97c;
+    --accent-texte: #4fc97c;
+    --accent-survol: #6fd896;
+    --accent-clair: #16261b;
+    --sur-accent: #0c1810;
+    --papier: #0e1511;
+    --papier-2: #141d17;
+    --surface: #132019;
+    --encre: #f4f0e6;
+    --encre-2: #bab3a2;
+    --encre-3: #8b8474;
+    --trait: #2a372e;
+    color-scheme: dark;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--papier); color: var(--encre);
+  font-family: var(--corps); font-size: 17px; line-height: 1.65;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+p { margin: 0; }
+h1, h2, h3 { font-family: var(--titres); font-weight: 400; letter-spacing: -0.015em; line-height: 1.12; margin: 0; }
+h1 { font-size: clamp(36px, 6vw, 62px); }
+h2 { font-size: clamp(27px, 3.6vw, 40px); }
+h3 { font-size: 21px; }
+
+:focus-visible { outline: 3px solid var(--accent-texte); outline-offset: 2px; border-radius: 2px; }
+
+.lien-evitement {
+  position: absolute; left: 12px; top: -60px; z-index: 100;
+  background: var(--accent-texte); color: var(--sur-accent); padding: 10px 16px; border-radius: 4px;
+}
+.lien-evitement:focus { top: 12px; }
+
+.contenu { max-width: var(--largeur); margin: 0 auto; padding: 0 20px; }
+.bande { padding: clamp(56px, 8vw, 104px) 0 0; }
+.surtitre {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 12.5px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-texte);
+}
+.surtitre::before { content: ''; width: 22px; height: 2px; background: currentColor; }
+.intro { max-width: 640px; margin-top: 14px; color: var(--encre-2); }
+
+/* ── Boutons ─────────────────────────────────────────────────────────── */
+.bouton, .bouton-2 {
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 14px 24px; font: inherit; font-size: 16px; font-weight: 600;
+  border-radius: 4px; text-decoration: none; cursor: pointer;
+  transition: background .2s, color .2s, border-color .2s, transform .2s var(--lisse);
+}
+.bouton { background: var(--accent-texte); color: var(--sur-accent); border: 1px solid var(--accent-texte); }
+.bouton:hover { background: var(--accent-survol); border-color: var(--accent-survol); transform: translateY(-2px); }
+.bouton-2 { background: transparent; color: var(--encre); border: 1px solid var(--trait); }
+.bouton-2:hover { border-color: var(--encre-3); transform: translateY(-2px); }
+
+/* ── En-tête ─────────────────────────────────────────────────────────── */
+.entete {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--papier) 92%, transparent);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid transparent; transition: border-color .25s, box-shadow .25s;
+}
+.entete.defile { border-bottom-color: var(--trait); box-shadow: 0 8px 24px -18px rgba(0, 0, 0, .35); }
+.entete-rang { display: flex; align-items: center; gap: 22px; padding: 14px 20px; max-width: var(--largeur); margin: 0 auto; }
+.marque { font-family: var(--titres); font-size: 23px; text-decoration: none; letter-spacing: -.01em; margin-right: auto; }
+.marque span { color: var(--accent-texte); }
+.menu { display: flex; gap: 4px; }
+.menu a { padding: 8px 12px; text-decoration: none; color: var(--encre-2); font-size: 15px; position: relative; transition: color .2s; }
+.menu a:hover { color: var(--encre); }
+.menu a::after {
+  content: ''; position: absolute; left: 12px; right: 12px; bottom: 3px; height: 2px;
+  background: var(--accent-texte); transform: scaleX(0); transform-origin: left; transition: transform .3s var(--lisse);
+}
+.menu a:hover::after { transform: scaleX(1); }
+.entete .bouton { padding: 10px 18px; font-size: 15px; }
+.burger { display: none; background: none; border: 1px solid var(--trait); border-radius: 4px; width: 44px; height: 44px; cursor: pointer; color: var(--encre); }
+@media (max-width: 860px) {
+  .burger { display: inline-grid; place-items: center; }
+  .menu {
+    display: none; position: absolute; left: 0; right: 0; top: 100%; flex-direction: column; gap: 0;
+    background: var(--papier); border-bottom: 1px solid var(--trait); padding: 8px 20px 16px;
+  }
+  .menu.ouvert { display: flex; }
+  .menu a { padding: 14px 4px; border-bottom: 1px solid var(--trait); }
+  .menu a::after { display: none; }
+  .entete .bouton { display: none; }
+}
+
+/* ── Héros ───────────────────────────────────────────────────────────── */
+.heros { padding: clamp(40px, 7vw, 88px) 0 0; }
+.heros-grille { display: grid; gap: clamp(28px, 5vw, 64px); align-items: center; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .heros-grille { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); } }
+.heros h1 { margin-top: 16px; }
+.heros p.chapeau { margin-top: 20px; font-size: clamp(17px, 1.7vw, 20px); color: var(--encre-2); max-width: 560px; }
+.actions { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 12px; }
+.preuves { margin: 26px 0 0; padding: 0; list-style: none; display: flex; flex-wrap: wrap; gap: 8px 22px; color: var(--encre-2); font-size: 15px; }
+.preuves li::before { content: '✓'; color: var(--accent-texte); font-weight: 700; margin-right: 8px; }
+.photo { border-radius: 8px; overflow: hidden; border: 1px solid var(--trait); background: var(--papier-2); }
+.photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* ── Services ────────────────────────────────────────────────────────── */
+.grille { margin-top: 32px; display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 640px) { .grille { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .grille.trois { grid-template-columns: repeat(3, 1fr); } }
+.carte {
+  padding: 26px 24px; background: var(--surface); border: 1px solid var(--trait); border-radius: 8px;
+  transition: transform .35s var(--lisse), border-color .25s, box-shadow .35s var(--lisse); position: relative; overflow: hidden;
+}
+.carte::before {
+  content: ''; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--accent);
+  transform: scaleX(0); transform-origin: left; transition: transform .45s var(--lisse);
+}
+.carte:hover { transform: translateY(-4px); border-color: color-mix(in srgb, var(--accent) 55%, var(--trait)); box-shadow: 0 18px 36px -26px rgba(0, 0, 0, .45); }
+.carte:hover::before { transform: scaleX(1); }
+.carte p { margin-top: 10px; color: var(--encre-2); font-size: 16px; }
+.carte .prix { margin-top: 14px; font-family: var(--titres); font-size: 26px; color: var(--accent-texte); }
+
+/* ── À propos ────────────────────────────────────────────────────────── */
+.deux { display: grid; gap: clamp(28px, 5vw, 64px); align-items: center; grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 900px) { .deux { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); } }
+.deux p + p { margin-top: 14px; }
+.chiffres { margin-top: 26px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+@media (max-width: 480px) { .chiffres { gap: 8px; } .chiffres div { padding: 14px 10px; } .chiffres b { font-size: 26px; } }
+.chiffres div { padding: 16px 14px; border: 1px solid var(--trait); border-radius: 8px; background: var(--surface); }
+.chiffres b { overflow-wrap: anywhere; display: block; font-family: var(--titres); font-weight: 400; font-size: 32px; color: var(--accent-texte); line-height: 1; }
+.chiffres span { overflow-wrap: anywhere; display: block; margin-top: 8px; font-size: 14px; color: var(--encre-2); line-height: 1.35; }
+
+/* ── Réalisations ────────────────────────────────────────────────────── */
+.galerie { margin-top: 32px; display: grid; gap: 14px; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 900px) { .galerie { grid-template-columns: repeat(3, 1fr); } }
+.galerie figure { margin: 0; }
+.galerie img { aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; border: 1px solid var(--trait); width: 100%; }
+.galerie figcaption { margin-top: 8px; font-size: 14px; color: var(--encre-2); }
+
+/* ── Avis ────────────────────────────────────────────────────────────── */
+.avis { margin: 32px 0 0; padding: 0; list-style: none; display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .avis { grid-template-columns: repeat(3, 1fr); } }
+.avis li { padding: 24px; background: var(--surface); border: 1px solid var(--trait); border-radius: 8px; }
+.etoiles { color: #d99a1e; letter-spacing: 3px; font-size: 18px; }
+.avis blockquote { margin: 10px 0 0; color: var(--encre); font-size: 16px; }
+.avis cite { display: block; margin-top: 14px; font-style: normal; font-size: 14px; color: var(--encre-2); }
+
+/* ── Horaires et contact ─────────────────────────────────────────────── */
+.horaires { margin: 18px 0 0; padding: 0; list-style: none; max-width: 360px; }
+.horaires li { display: flex; justify-content: space-between; gap: 16px; padding: 9px 0; border-bottom: 1px solid var(--trait); font-size: 16px; }
+.horaires li span:last-child { color: var(--encre-2); }
+.coordonnees { margin-top: 20px; display: grid; gap: 8px; font-style: normal; }
+.coordonnees a { text-underline-offset: 3px; }
+
+.formulaire { padding: clamp(22px, 3vw, 34px); background: var(--accent-clair); border: 1px solid var(--accent); border-radius: 8px; }
+.formulaire label { display: block; font-size: 15px; font-weight: 600; margin-top: 16px; }
+.formulaire label:first-of-type { margin-top: 0; }
+.champ {
+  display: block; width: 100%; margin-top: 6px; padding: 12px 14px; font: inherit; font-size: 16px;
+  color: var(--encre); background: var(--surface); border: 1px solid var(--trait); border-radius: 4px;
+}
+textarea.champ { min-height: 130px; resize: vertical; }
+.formulaire .bouton { margin-top: 20px; width: 100%; }
+.formulaire .note { margin-top: 12px; font-size: 13.5px; color: var(--encre-2); }
+.piege { position: absolute; left: -9999px; }
+
+/* ── Pied de page ────────────────────────────────────────────────────── */
+.pied { margin-top: clamp(64px, 9vw, 112px); padding: 36px 0 110px; border-top: 1px solid var(--trait); background: var(--papier-2); font-size: 15px; color: var(--encre-2); }
+.pied-rang { display: flex; flex-wrap: wrap; gap: 14px 28px; justify-content: space-between; align-items: center; }
+.pied nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+.pied a { text-underline-offset: 3px; }
+
+/* ── Barre du pouce (téléphone) : appeler et réserver, toujours à portée ─ */
+.barre-pouce { display: none; }
+@media (max-width: 700px) {
+  .barre-pouce {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom)); background: var(--papier); border-top: 1px solid var(--trait);
+  }
+  .barre-pouce .bouton, .barre-pouce .bouton-2 { padding: 13px 8px; font-size: 15px; }
+}
+
+/* ── Pages de texte (mentions légales, confidentialité, merci, 404) ──── */
+.page-texte { padding: clamp(40px, 6vw, 72px) 0 0; max-width: 760px; }
+.page-texte h1 { font-size: clamp(30px, 4.6vw, 44px); }
+.page-texte h2 { font-size: 24px; margin-top: 34px; }
+.page-texte p, .page-texte ul { margin-top: 12px; color: var(--encre-2); }
+.page-texte ul { padding-left: 20px; }
+
+/* ── Mouvement : apparitions au défilement ───────────────────────────── */
+/* Les éléments ne sont cachés QUE si le script tourne (classe .js sur <html>) :
+   sans JavaScript, tout est lisible. */
+.js .revele { opacity: 0; transform: translateY(22px); transition: opacity .7s var(--lisse), transform .7s var(--lisse); transition-delay: calc(var(--i, 0) * 80ms); }
+.js .revele.vu { opacity: 1; transform: none; }
+.heros-texte > * { animation: monte .8s var(--lisse) both; }
+.heros-texte > *:nth-child(2) { animation-delay: .1s; }
+.heros-texte > *:nth-child(3) { animation-delay: .2s; }
+.heros-texte > *:nth-child(4) { animation-delay: .3s; }
+.heros-texte > *:nth-child(5) { animation-delay: .4s; }
+@keyframes monte { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .revele { opacity: 1; transform: none; }
+}
